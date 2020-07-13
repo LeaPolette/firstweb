@@ -24,5 +24,83 @@
     <p>II.Ingrese los datos de la gráfica (como se indica en el ejemplo)</p>  
      <p>  III.Presione calcular
     </p>
+
+
+
+    <form action="" method="post">
+      
+      <div id = 'matrices'>
+
+          <p>Hola</p>
+      </div>
+
+    </form>
+
+
+    <form name ="formulario" id='formulario' >
+      <input list="browsers" size = '20'>
+
+      <datalist id="browsers">
+        <option value="Dirigida">
+        <option value="No Dirigida">
+      </datalist>
+
+
+      <p>Numero de nodos</p>
+      <input type="number" name="nodos" id="nodos" />
+
+
+      <p>Numero de lineas</p>
+      <input type="number" name="lineas" id="lineas" />
+      <br><br>
+      <input id="botonEnvio" type="submit" value="Enviar">
+    </form>
+
+    
+   
+
+    <script>
+      
+        var formulario = document.getElementById('formulario');
+        
+
+       
+        
+        var generar = function(e){
+
+          var n = parseInt(formulario.nodos.value) ;
+          var m = parseInt(formulario.lineas.value);
+          var matrices = document.getElementById('matrices');
+          
+          matrices.innerHTML= "<br>";
+          matrices.innerHTML += ' <p>Se crearon del nodo A al nodo  </p>'
+          matrices.innerHTML += '<p>Nodo        a nodo</p>';
+          // id = i-j
+          for (var i = 0; i < m; i++) {
+
+            matrices.innerHTML +=  '<p>Linea ' + i.toString(10)+' </p>' ;
+
+            for (var j = 0; j < 2; j++) {
+              
+              matrices.innerHTML += '<input type="text" size="10" style = "padding: 10px; margin: 10px;">';
+            }
+            matrices.innerHTML += '<br>';
+          }
+
+          matrices.innerHTML += "<br>";
+          matrices.innerHTML += "<input id='botonCalcula' type='submit' value='Calcula'> ";
+          matrices.innerHTML += "<br>";
+          formulario.innerHTML =  '';
+
+          e.preventDefault() //para evitar el problema de que borre el resultado
+        }
+
+
+        formulario.addEventListener('submit',generar);
+        
+        
+
+    </script>
+
 </body>
 </html>
